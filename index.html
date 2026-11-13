@@ -794,6 +794,7 @@ SOFTWARE.
 #af-studio .af-game-picker,#af-studio .af-game-identity{display:inline-flex;align-items:center;gap:9px}
 #af-studio .af-game-icon{width:21px;height:21px;object-fit:contain;flex:0 0 21px;display:block}
 #af-studio .af-game-icon-cs2{filter:brightness(0) invert(1)}
+#af-studio .af-game-option.selected .af-game-icon{filter:brightness(0)}
 #af-studio .af-game-option{flex-wrap:nowrap}
 #af-studio input::placeholder,#af-studio textarea::placeholder{color:var(--af-brand);opacity:1}
 #af-studio input:disabled::placeholder,#af-studio textarea:disabled::placeholder{color:var(--af-muted)}
@@ -1281,7 +1282,7 @@ function onboardingNavigation(from,to){
 function playHub(){return home();}
 // Prototype components share tokens and data contracts with the future Godot UI.
 const GAME_PROFILES=[{id:'valorant',label:'VALORANT',available:true},{id:'cs2',label:'Counter-Strike 2',available:false}];
-function gameIcon(game){return `<img class="af-game-icon af-game-icon-${game.id}" src="${ASSETS['game_'+game.id]}" alt="" aria-hidden="true">`;}
+function gameIcon(game){if(game.id==='valorant')return `<svg class="af-game-icon af-game-icon-valorant" viewBox="1180 452 1644 1348" aria-hidden="true" focusable="false"><image href="${ASSETS.game_valorant}" width="4000" height="2250"/></svg>`;return `<img class="af-game-icon af-game-icon-${game.id}" src="${ASSETS['game_'+game.id]}" alt="" aria-hidden="true">`;}
 function selectedGameProfile(){return GAME_PROFILES.find(game=>game.id===state.game)||GAME_PROFILES[0];}
 const playRoutes=['play','aim','flash','playlists','rating','task','training','result','editor'];
 function hideTooltip(){const el=root.querySelector('#af-tooltip');if(!el)return;el.hidden=true;root.querySelectorAll('[aria-describedby="af-tooltip"]').forEach(x=>x.removeAttribute('aria-describedby'));}
