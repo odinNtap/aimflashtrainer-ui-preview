@@ -440,14 +440,23 @@ SOFTWARE.
 #af-studio .af-task-flashes{display:flex;flex-direction:column;gap:10px;margin:0 0 16px}
 #af-studio .af-flash-heading{font-size:13px;min-height:24px}
 #af-studio .af-flash-pool-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
-#af-studio .af-flash-pool-row .af-segments{display:flex;gap:6px}
-#af-studio .af-flash-pool-row .af-button{padding:7px 10px;font-size:11px;min-height:32px}
+#af-studio .af-flash-pool-row .af-segments{display:flex;gap:6px;flex:0 0 auto}
+#af-studio .af-flash-pool-row .af-button{flex:0 0 auto;min-width:84px;padding:8px 18px;font-size:12px;min-height:36px}
+#af-studio .af-flash-pool-row .af-button[data-value=selected]{min-width:132px}
 #af-studio .af-flash-picker{display:flex;flex-direction:column;gap:12px;padding:12px;border:1px solid var(--af-border);border-radius:var(--af-radius);background:var(--af-raised)}
 #af-studio .af-flash-group{display:flex;flex-direction:column;gap:8px}
 #af-studio .af-flash-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
 #af-studio .af-flash-option{display:flex;align-items:center;gap:8px;min-height:34px;padding:5px 8px;font-size:12px;cursor:pointer;border:1px solid transparent;border-radius:var(--af-radius)}
 #af-studio .af-flash-option.is-selected{background:var(--af-surface);border-color:var(--af-border)}
 #af-studio .af-flash-option input{margin:0;flex-shrink:0}
+#af-studio input.af-checkbox{appearance:none;-webkit-appearance:none;box-sizing:border-box;display:grid;place-items:center;flex:0 0 18px;width:18px;height:18px;margin:0;padding:0;border:1px solid var(--af-muted);border-radius:3px;background:var(--af-surface);cursor:pointer;transition:background-color var(--af-motion-fast),border-color var(--af-motion-fast)}
+#af-studio input.af-checkbox:after{content:"";width:9px;height:5px;border-left:2px solid var(--af-bg);border-bottom:2px solid var(--af-bg);transform:translateY(-1px) rotate(-45deg);opacity:0}
+#af-studio input.af-checkbox:checked{background:var(--af-text);border-color:var(--af-text)}
+#af-studio input.af-checkbox:checked:after{opacity:1}
+#af-studio input.af-checkbox:focus-visible{outline:2px solid var(--af-brand);outline-offset:3px}
+#af-studio .af-flash-toggle{display:flex;align-items:center;gap:10px;width:fit-content;min-height:36px;cursor:pointer}
+#af-studio .af-flash-toggle:hover input.af-checkbox:not(:checked){border-color:var(--af-text)}
+#af-studio .af-flash-option{min-height:40px;padding:8px 10px}
 #af-studio .af-flash-message{margin:0;color:var(--af-muted);font-size:11px;line-height:1.5}
 #af-studio .af-flash-message.is-error{color:var(--af-warn)}
 #af-studio .af-flash-summary{flex:1;min-width:0;overflow-wrap:anywhere;line-height:1.5}
@@ -791,6 +800,7 @@ SOFTWARE.
 #af-studio .af-button,#af-studio .af-text-button,#af-studio .af-game-picker,#af-studio #af-main-nav .af-nav{white-space:nowrap;flex-shrink:0}
 #af-studio #af-main-nav{grid-template-columns:repeat(4,max-content);width:auto;flex-shrink:0}
 #af-studio .af-nav-label{white-space:nowrap}
+#af-studio #af-main-nav .af-nav{padding-inline:18px;min-width:max-content;flex-wrap:nowrap}
 #af-studio .af-game-picker,#af-studio .af-game-identity{display:inline-flex;align-items:center;gap:9px}
 #af-studio .af-game-icon{width:21px;height:21px;object-fit:contain;flex:0 0 21px;display:block}
 #af-studio .af-game-icon-cs2{filter:brightness(0) invert(1)}
@@ -1595,11 +1605,11 @@ function taskFlashSummary(){
 }
 function taskFlashControls(){
  const draft=taskFlashDraft(),current=taskFlashConditions(),access=taskFlashAccess();
- const toggle=isFlashOnlyCategory(state.category)?'<span class="af-flash-heading">Флешки</span>':`<label class="af-row af-flash-heading"><input type="checkbox" data-task-flashes ${current.enabled?'checked':''}>С флешками</label>`;
+ const toggle=isFlashOnlyCategory(state.category)?'<span class="af-flash-heading">Флешки</span>':`<label class="af-flash-heading af-flash-toggle"><input class="af-checkbox" type="checkbox" data-task-flashes ${current.enabled?'checked':''}><span>Добавить флешки</span></label>`;
  let picker='';
  if(current.enabled&&access){
   const selected=draft.pool==='selected',open=selected&&taskFlashExpanded;
-  const group=(key,label)=>{const abilities=taskFlashPool().filter(a=>a.group===key);if(!abilities.length)return '';return `<div class="af-flash-group">${state.category==='flash_mix'?`<span class="af-small af-muted">${label}</span>`:''}<div class="af-flash-options">${abilities.map(a=>`<label class="af-flash-option${draft.selected?.includes(a.id)?' is-selected':''}"><input type="checkbox" data-task-ability="${a.id}"${draft.selected?.includes(a.id)?' checked':''}><span>${a.name}</span></label>`).join('')}</div></div>`;};
+  const group=(key,label)=>{const abilities=taskFlashPool().filter(a=>a.group===key);if(!abilities.length)return '';return `<div class="af-flash-group">${state.category==='flash_mix'?`<span class="af-small af-muted">${label}</span>`:''}<div class="af-flash-options">${abilities.map(a=>`<label class="af-flash-option${draft.selected?.includes(a.id)?' is-selected':''}"><input class="af-checkbox" type="checkbox" data-task-ability="${a.id}"${draft.selected?.includes(a.id)?' checked':''}><span>${a.name}</span></label>`).join('')}</div></div>`;};
   picker=`<div class="af-flash-pool-row"><span class="af-small af-muted">Набор</span><div class="af-segments">${btn('Все','task-flash-pool',selected?'ghost':'selected','',`data-value="standard" aria-pressed="${!selected}"`)}${btn('Выбрать'+(selected?' · '+current.ids.length:''),'task-flash-pool',selected?'selected':'ghost','',`data-value="selected" aria-pressed="${selected}" aria-expanded="${open}"${open?' aria-controls="af-task-flash-options"':''}`)}</div></div>${open?`<div id="af-task-flash-options" class="af-flash-picker" role="group" aria-label="Выбор флешек">${group('reaction','Отвернуться')}${group('damage','Разбить')}</div>`:''}`;
  }
  const error=!current.valid?'<p class="af-flash-message is-error" role="status">Выберите хотя бы одну флешку, чтобы начать тренировку.</p>':'';
