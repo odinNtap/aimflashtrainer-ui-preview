@@ -796,7 +796,7 @@ SOFTWARE.
 #af-studio .af-game-icon-cs2{filter:brightness(0) invert(1)}
 #af-studio .af-game-option.selected .af-game-icon{filter:brightness(0)}
 #af-studio .af-game-option{flex-wrap:nowrap}
-#af-studio input::placeholder,#af-studio textarea::placeholder{color:var(--af-brand);opacity:1}
+#af-studio input::placeholder,#af-studio textarea::placeholder{color:var(--af-muted);opacity:1}
 #af-studio input:disabled::placeholder,#af-studio textarea:disabled::placeholder{color:var(--af-muted)}
 /* A single rhythm for overview / history / exercise breakdown. */
 #af-studio .af-stat-page{display:grid;gap:20px;min-width:0}
@@ -809,10 +809,15 @@ SOFTWARE.
 #af-studio .af-stat-body>.af-grid{align-items:stretch}
 #af-studio .af-stat-body .af-card{min-width:0}
 #af-studio .af-stat-body .af-profile-stat-group{margin-bottom:0}
+#af-studio .af-stat-body .af-card .af-stat-summary{grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}
+#af-studio .af-stat-body .af-profile-stat-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:16px;column-count:auto}
+#af-studio .af-stat-body .af-season-summary{grid-template-columns:repeat(12,minmax(0,1fr))}
+#af-studio .af-stat-body .af-season-summary>.af-metric{grid-column:span 3}
+#af-studio .af-stat-body .af-season-summary>.af-metric:nth-child(n+5){grid-column:span 4}
 #af-studio .af-board-season{margin:20px 0 0}
 @media(max-width:1000px){#af-studio #af-main-nav .af-nav{padding:0 9px}#af-studio .af-stat-controls{grid-template-columns:minmax(150px,.7fr) minmax(230px,1.3fr)}#af-studio .af-stat-controls>label:last-child{grid-column:1/-1}}
 @media(max-width:850px){#af-studio #af-main-nav{width:100%;grid-template-columns:repeat(4,max-content);justify-content:start;overflow-x:auto;height:48px}#af-studio #af-main-nav .af-nav{min-height:40px}#af-studio .af-shell-header{min-width:0}}
-@media(max-width:650px){#af-studio .af-stat-controls{grid-template-columns:1fr}#af-studio .af-stat-page{gap:16px}}
+@media(max-width:650px){#af-studio .af-stat-controls,#af-studio .af-stat-body .af-profile-stat-grid{grid-template-columns:1fr}#af-studio .af-stat-page{gap:16px}#af-studio .af-stat-body .af-season-summary{grid-template-columns:repeat(2,minmax(0,1fr))}#af-studio .af-stat-body .af-season-summary>.af-metric:nth-child(n){grid-column:auto}}
 
 /* Reuses the existing font, color, spacing and card tokens. */
 #af-studio .af-foot{display:flex;align-items:center;justify-content:space-between;gap:16px}
