@@ -1165,14 +1165,14 @@ SOFTWARE.
 
 /* One disclosure for the complete exercise; charts retain independent input. */
 #af-studio .af-playlist-task{cursor:pointer;transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease}
-#af-studio .af-playlist-task:hover{background:color-mix(in srgb,var(--af-brand) 7%,var(--af-raised));border-color:color-mix(in srgb,var(--af-brand) 55%,var(--af-border))}
-#af-studio .af-playlist-task.is-expanded{border-color:color-mix(in srgb,var(--af-brand) 60%,var(--af-border))}
+#af-studio .af-playlist-task:not(.is-expanded):hover{background:color-mix(in srgb,var(--af-brand) 7%,var(--af-raised));border-color:color-mix(in srgb,var(--af-brand) 55%,var(--af-border))}
+#af-studio .af-playlist-task.is-expanded{cursor:default}
 #af-studio .af-composition-details{grid-column:1/-1;min-width:0;overflow:hidden;cursor:default}
 #af-studio .af-composition-details>.af-composition-preview{margin:0;padding-top:14px;border-top:1px solid var(--af-border)}
 #af-studio .af-composition-details>.af-composition-stats{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--af-border)}
 #af-studio .af-composition-details-toggle svg{width:14px;height:14px;transform:rotate(90deg);transition:transform .2s ease}
 #af-studio .is-expanded .af-composition-details-toggle svg{transform:rotate(270deg)}
-#af-studio .af-playlist-task:hover .af-composition-details-toggle{animation:af-details-float 1.6s ease-in-out infinite}
+#af-studio .af-playlist-task:not(.is-expanded):hover .af-composition-details-toggle{animation:af-details-float 1.6s ease-in-out infinite}
 @keyframes af-details-float{0%,100%{translate:0 0}50%{translate:0 -3px}}
 @media(prefers-reduced-motion:reduce){#af-studio .af-playlist-task,#af-studio .af-composition-details-toggle svg{transition:none}#af-studio .af-playlist-task:hover .af-composition-details-toggle{animation:none}}
 
