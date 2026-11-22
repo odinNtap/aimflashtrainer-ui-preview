@@ -34,3 +34,5 @@ UI-RANK-PLUS-09: moderately stronger painted flames for single-plus ranks only; 
 New mode-first Home: Aim, flashes, ranked and friend duel; playlists/resume/daily and all three weekly tasks. Open “Проверить весь макет” or footer “Карта макета” for80primary screens/states. Covers VAL/CS2, queues/warmup/countdowns/outcomes/rematch, calibration, S1/S2/rewards, settings, Cloud/error states, news and sample diagnostics. Review controls and fixtures are prototype-only. No Steam or actual game saves.1920×1080/DPR1 validated;1366×768 overflow/CTA check passed. Native game, GPU/audio/input, physical two-PC and release gates remain separate.
 
 22.11 · UI-HOME-CLEANUP-11: shared styling, separate playlist library and daily section; tasks/help/news top right. Preview controls opt-in through «Тест макета». 1920×1080 and 1366×768 checked.
+
+22.11 · UI-HOME-POLISH-12: welcome line restored, taller recommendation/resume fills lower Home; training illustrations for Aim/VAL/CS2; capsule navigation. 1920×1080 and compact spacing verified.

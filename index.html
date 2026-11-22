@@ -1340,9 +1340,18 @@ SOFTWARE.
 
 /* Home and review surfaces. Physical text sizes target 1920×1080/DPR1. */
 #af-studio[data-screen=home] .af-top{visibility:hidden}
-#af-studio .af-home-v2{display:flex;flex-direction:column;gap:24px;width:100%;min-height:0;flex:1;overflow:auto;padding:0 6px 8px 0}
+/* One capsule navigation for all player screens. */
+#af-studio #af-main-nav{height:48px;padding:4px;gap:4px;border:1px solid var(--af-border);border-radius:999px;background:color-mix(in srgb,var(--af-surface) 70%,transparent)}
+#af-studio #af-main-nav .af-nav{position:relative;margin:0;border:1px solid transparent;border-radius:999px;padding:0 18px;height:38px;background:transparent;color:var(--af-muted);box-shadow:none;transition:background .15s,border-color .15s,color .15s}
+#af-studio #af-main-nav .af-nav:hover{color:var(--af-text);background:var(--af-raised)}
+#af-studio #af-main-nav .af-nav[aria-current=page]{color:var(--af-text);background:color-mix(in srgb,var(--af-brand) 16%,var(--af-surface));border-color:color-mix(in srgb,var(--af-brand) 55%,var(--af-border));box-shadow:inset 0 1px #ffffff0a}
+#af-studio #af-main-nav .af-nav[aria-current=page]>.af-icon{color:var(--af-brand)}
+#af-studio .af-home-v2{display:flex;flex-direction:column;gap:18px;width:100%;min-height:0;flex:1;overflow:auto;padding:0 6px 8px 0}
 #af-studio .af-home-v2-heading{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:8px 0 4px}
 #af-studio #af-content .af-home-v2-heading h1{font-size:36px;letter-spacing:-.8px;margin:0}
+#af-studio .af-home-title{display:flex;flex-direction:column;gap:8px}
+#af-studio #af-content .af-home-welcome{font-size:15px;line-height:1.4;color:var(--af-muted);margin:0;display:flex;align-items:center;gap:9px}
+#af-studio .af-home-welcome::before{content:'';width:16px;height:2px;border-radius:2px;background:var(--af-brand);flex-shrink:0}
 #af-studio .af-home-shortcuts{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 #af-studio .af-home-shortcuts .af-btn{min-height:42px}
 #af-studio .af-mode-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;min-height:298px;flex:0 0 34%}
@@ -1357,19 +1366,15 @@ SOFTWARE.
 #af-studio #af-content .af-mode-enter{font-size:14px;display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid #ffffff18;font-weight:600}
 #af-studio .af-mode-enter>.af-icon:last-child{margin-left:auto}
 #af-studio .af-mode-visual{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;mask-image:linear-gradient(#000 45%,transparent 82%)}
-#af-studio .af-mode-grid-art{position:absolute;inset:20px -40px 50%;background:linear-gradient(90deg,transparent 49%,#68d7d024 50%,transparent 51%),linear-gradient(transparent 49%,#68d7d024 50%,transparent 51%);background-size:44px 44px;transform:perspective(240px) rotateX(35deg) rotateZ(-12deg)}
-#af-studio .af-mode-target{position:absolute;width:44px;height:44px;border:8px solid #5bc9c6;border-radius:50%;box-shadow:0 0 0 10px #5bc9c618,inset 0 0 12px #5bc9c61a}
-#af-studio .af-mode-target.one{top:65px;right:60px}#af-studio .af-mode-target.two{top:130px;right:150px;width:28px;height:28px;border-width:6px;opacity:.7}#af-studio .af-mode-target.three{top:42px;right:210px;width:16px;height:16px;border-width:5px;opacity:.4}
-#af-studio .af-mode-orb{position:absolute;top:55px;right:85px;width:80px;height:80px;border-radius:50%;background:radial-gradient(circle at 34% 28%,#fff8d8,#f0c46a 12%,#bd7936 39%,#67482c 66%);box-shadow:0 0 45px #f0c46a44,0 0 0 16px #f0c46a0b}
-#af-studio .af-mode-orbit{position:absolute;top:70px;right:55px;width:150px;height:55px;border:2px solid #f0c46a44;border-radius:50%;transform:rotate(-36deg)}
+#af-studio .af-mode-game-art{position:absolute;top:14px;right:0;width:100%;height:180px;filter:drop-shadow(0 8px 14px #0003)}
 #af-studio .af-mode-rating .af-mode-visual>.af-ds-badge{position:absolute;top:24px;right:40px;width:104px;height:104px;filter:drop-shadow(0 10px 24px #0006)}
 #af-studio .af-duel-line{position:absolute;top:10%;right:39%;height:180px;width:1px;background:linear-gradient(transparent,#83b8f099,transparent);transform:rotate(26deg)}
 #af-studio #af-content .af-duel-vs{position:absolute;right:54px;top:61px;font-size:74px;font-weight:700;letter-spacing:6px;color:#a4c9ed;line-height:1}
 #af-studio #af-content .af-duel-vs span{font-size:36px;color:#7e9eba;vertical-align:middle;margin:0 8px;font-weight:400}
 #af-studio .af-home-v2-lower{display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:22px;flex:1 0 auto}
 #af-studio .af-home-v2-main{display:flex;flex-direction:column;gap:18px;min-width:0}
-#af-studio .af-home-resume{padding:22px 24px}
-#af-studio #af-content .af-home-resume h2{font-size:25px;margin:6px 0}
+#af-studio .af-home-resume{padding:28px 24px;min-height:220px;flex:1;display:flex;flex-direction:column;justify-content:center;gap:18px}
+#af-studio #af-content .af-home-resume h2{font-size:32px;margin:8px 0}
 #af-studio .af-home-resume p{margin:0}
 #af-studio .af-home-resume>.af-row{gap:20px;flex-wrap:wrap}
 #af-studio .af-home-resume .af-actions{display:flex;gap:10px}
@@ -1380,7 +1385,7 @@ SOFTWARE.
 #af-studio .af-routine-card>.af-icon:last-child{width:16px;height:16px;flex-basis:16px}
 #af-studio #af-content .af-routine-card strong,#af-studio #af-content .af-home-today .af-daily-tile strong{font-size:17px;font-weight:600}
 #af-studio #af-content .af-routine-card small,#af-studio #af-content .af-home-today .af-daily-tile small{font-size:14px;color:var(--af-muted);line-height:1.5}
-#af-studio .af-home-today{display:flex;flex-direction:column;gap:12px}
+#af-studio .af-home-today{display:flex;flex-direction:column;gap:12px;margin-top:auto}
 #af-studio #af-content .af-home-today h2{font-size:19px;margin:0}
 #af-studio .af-home-today .af-daily-entries{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0}
 #af-studio .af-home-week-v2{padding:24px}
@@ -1449,7 +1454,7 @@ SOFTWARE.
 #af-studio .af-training-performance{position:absolute;right:24px;bottom:24px;font-size:14px;color:#dce8f3;z-index:3;text-shadow:0 1px 4px #000}
 #af-studio .af-game-scene>.af-patch-arena{z-index:0}
 #af-studio .af-game-scene>.af-training-range,#af-studio .af-game-scene>.af-training-hud{z-index:2}
-@media(max-width:1450px){#af-studio .af-mode-card{padding:18px}#af-studio #af-content .af-mode-copy h2{font-size:24px}#af-studio .af-mode-grid{gap:12px;min-height:300px}#af-studio .af-home-v2-lower{grid-template-columns:minmax(0,1fr) 310px}#af-studio .af-home-today .af-daily-tile,#af-studio .af-routine-card{min-height:80px}#af-studio .af-mode-visual{opacity:.75}#af-studio .af-review-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:1450px){#af-studio .af-mode-rating .af-mode-visual>.af-ds-badge{top:50px;right:20px;width:80px;height:80px}#af-studio .af-home-resume{min-height:200px}#af-studio #af-main-nav .af-nav{padding-inline:14px}#af-studio .af-mode-card{padding:18px}#af-studio #af-content .af-mode-copy h2{font-size:24px}#af-studio .af-mode-grid{gap:12px;min-height:300px}#af-studio .af-home-v2-lower{grid-template-columns:minmax(0,1fr) 310px}#af-studio .af-home-today .af-daily-tile,#af-studio .af-routine-card{min-height:80px}#af-studio .af-mode-visual{opacity:.75}#af-studio .af-review-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:1000px){#af-studio .af-mode-grid{grid-template-columns:1fr 1fr;flex:none}#af-studio .af-mode-card{min-height:290px}#af-studio .af-home-v2-lower,#af-studio .af-duel-layout{grid-template-columns:1fr}#af-studio .af-review-heading,#af-studio .af-home-v2-heading{align-items:flex-start;flex-direction:column}#af-studio .af-review-grid{grid-template-columns:1fr}#af-studio .af-news-grid,#af-studio .af-home-today .af-daily-entries{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){#af-studio .af-mode-card{transition:none}}
 
@@ -2617,12 +2622,20 @@ const REVIEW_GROUPS=[
 ];
 
 function reviewModeCard(key,title,description,tag,ico,visual){return `<button class="af-mode-card af-mode-${key}" data-${key==='duel'?'action="review-duel"':'route="'+key+'"'}><div class="af-mode-visual" aria-hidden="true">${visual}</div><span class="af-mode-tag">${tag}</span><div class="af-mode-copy"><h2>${title}</h2><p>${description}</p><span class="af-mode-enter">${icon(ico)}${key==='rating'?'Открыть рейтинг':key==='duel'?'Выбрать друга':'Выбрать упражнение'}${icon('chevron-right')}</span></div></button>`;}
+// Static vector illustrations of the training subjects, not game screenshots.
+function reviewModeArtwork(kind){
+ const aim=kind==='aim',cs=kind==='cs2',id='af-home-art-'+kind;
+ const scene=aim?`<path d="M16 156V60L130 16H382V156" fill="#232d35"/><path d="M16 156L130 92H382V156" fill="#182228"/><path d="M130 16V92M16 60H382M130 92L214 156M256 92L314 156M16 156L130 92H382" fill="none" stroke="#8ba6b4" stroke-opacity=".2"/><path d="M16 60L130 16H382" fill="none" stroke="#62d5cf" stroke-opacity=".5"/><path d="M154 20V88M230 20V88M306 20V88" stroke="#141e25" stroke-width="3"/>${[[150,67,17],[265,48,22],[322,108,14]].map(([x,y,r])=>`<ellipse cx="${x+5}" cy="${y+32}" rx="${r}" ry="5" fill="#000" opacity=".35"/><circle cx="${x}" cy="${y}" r="${r}" fill="url(#${id}-sphere)"/><ellipse cx="${x-r*.3}" cy="${y-r*.4}" rx="${r*.3}" ry="${r*.16}" fill="#ffd2d8" opacity=".6"/>`).join('')}<path d="M244 48H256M274 48H286M265 27V39M265 57V69" stroke="#e3fffc" stroke-width="2"/><circle cx="265" cy="48" r="2" fill="#e3fffc"/>`:
+ cs?`<path d="M104 137L340 37M141 155L371 51" stroke="#dfb36f" stroke-opacity=".15" stroke-width="2"/><g transform="translate(238 86) rotate(28)"><ellipse cy="51" rx="41" ry="8" fill="#000" opacity=".25"/><path d="M-26-38V29Q0 45 26 29V-38Z" fill="url(#${id}-metal)" stroke="#8e989d"/><ellipse cy="-38" rx="26" ry="9" fill="#c9d2d6"/><path d="M-24-29V-10H24V-29Z" fill="#314643"/><path d="M-23 12H23V24Q0 36-23 24Z" fill="#455653"/><path d="M-12-45V-56H9L23-39V16" fill="none" stroke="#bbc9cc" stroke-width="7" stroke-linejoin="round"/><circle cx="-23" cy="-52" r="11" fill="none" stroke="#929fa6" stroke-width="3"/><path d="M-19-4H19M-19 3H19" stroke="#616e72" stroke-width="2"/></g><path d="M295 24L303 39L322 41L307 52L310 71L294 61L279 72L283 53L268 42L288 39Z" fill="#ffdfa3" opacity=".7"/>`:
+ `<path d="M112 122Q239 19 366 72M124 137Q249 46 370 102" fill="none" stroke="#b980df" stroke-width="2" opacity=".2"/><ellipse cx="256" cy="83" rx="74" ry="61" fill="url(#${id}-aura)"/><path d="M178 80L220 38L282 28L334 73L302 123L232 137Z" fill="#6f338a" opacity=".65"/><path d="M187 80L226 47L279 39L322 75L296 113L234 124Z" fill="#be62d8"/><path d="M187 80L232 61L279 58L322 75L282 100L236 103Z" fill="#e8a6ed"/><path d="M216 80Q256 42 296 80Q256 117 216 80Z" fill="#2d183f"/><ellipse cx="256" cy="80" rx="15" ry="23" fill="#e8bfff"/><path d="M254 59L262 79L254 102L249 80Z" fill="#fff"/><path d="M205 48L222 29M299 43L316 24M310 118L323 136M217 121L204 140" stroke="#cb85ec" stroke-width="3" opacity=".65"/>`;
+ return `<svg class="af-mode-game-art" viewBox="0 0 400 180" fill="none" aria-hidden="true"><defs><radialGradient id="${id}-sphere" cx=".3" cy=".25"><stop stop-color="#ffb0bc"/><stop offset=".3" stop-color="#ef536c"/><stop offset="1" stop-color="#7e1839"/></radialGradient><linearGradient id="${id}-metal"><stop stop-color="#5c696f"/><stop offset=".4" stop-color="#d5dee0"/><stop offset="1" stop-color="#536168"/></linearGradient><radialGradient id="${id}-aura"><stop stop-color="#d88aff" stop-opacity=".55"/><stop offset="1" stop-color="#a455e2" stop-opacity="0"/></radialGradient></defs>${scene}</svg>`;
+}
 function reviewHome(){
  const selected=homeSelection(),cs=state.game==='cs2';
- return `<div class="af-home-v2"><header class="af-home-v2-heading"><h1>Во что играем?</h1><nav class="af-home-shortcuts" aria-label="Помощь и задания">${btn('Задания и первые шаги','weekly','ghost','star')}${routeBtn('Помощь','help','ghost','info-circle')}${btn('Что нового','review-news','ghost','bell')}</nav></header>
+ return `<div class="af-home-v2"><header class="af-home-v2-heading"><div class="af-home-title"><p class="af-home-welcome">${esc(homeWelcome())}</p><h1>Во что играем?</h1></div><nav class="af-home-shortcuts" aria-label="Помощь и задания">${btn('Задания и первые шаги','weekly','ghost','star')}${routeBtn('Помощь','help','ghost','info-circle')}${btn('Что нового','review-news','ghost','bell')}</nav></header>
  <section class="af-mode-grid" aria-label="Режимы игры">
- ${reviewModeCard('aim','Aim-тренировки','Точность, трекинг и перенос огня.','СОЛО','target','<i class="af-mode-grid-art"></i><i class="af-mode-target one"></i><i class="af-mode-target two"></i><i class="af-mode-target three"></i>')}
- ${reviewModeCard('flash','Флешки',cs?'Тренируйте реакцию на флешку CS2.':'Разбивайте способности и уходите от вспышек.',cs?'COUNTER-STRIKE 2':'VALORANT','bolt','<i class="af-mode-orb"></i><i class="af-mode-orbit"></i>')}
+ ${reviewModeCard('aim','Aim-тренировки','Точность, трекинг и перенос огня.','СОЛО','target',reviewModeArtwork('aim'))}
+ ${reviewModeCard('flash','Флешки',cs?'Тренируйте реакцию на флешку CS2.':'Разбивайте способности и уходите от вспышек.',cs?'COUNTER-STRIKE 2':'VALORANT','bolt',reviewModeArtwork(cs?'cs2':'flash'))}
  ${reviewModeCard('rating','Рейтинговый матч','Равный соперник. Случайные раунды. Ваш ранг.',patchA.calibrated?'СЕЗОН 2 · '+patchACurrentRank():'1 НА 1 · КАЛИБРОВКА '+patchA.calibration+'/10','trophy',patchARankImage(patchACurrentRank()))}
  ${reviewModeCard('duel','Дуэль с другом','Те же правила BO5. Без изменения ранга.','1 НА 1 · БЕЗ РАНГА','user','<i class="af-duel-line"></i><span class="af-duel-vs">1<span>×</span>1</span>')}
  </section>
