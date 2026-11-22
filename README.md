@@ -21,3 +21,6 @@ UI-UNRANKED-RESTORE-06 · 22.11: «Без ранга» возвращён к и�
 
 
 UI-RANK-FIRE-07: static painted fire variants for every +/++ rank; original base ranks and unranked unchanged. Letter/division geometry retained.
+
+
+UI-RANK-SCALE-08: align base/+/++ emblem scale; external flame gutter preserves full artwork and unchanged glyph size. Checked at1920×1080.
