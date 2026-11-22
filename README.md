@@ -18,3 +18,6 @@ Rank finish refinement: Bahnschrift outlines replace hand-drawn block letters, w
 
 
 UI-UNRANKED-RESTORE-06 · 22.11: «Без ранга» возвращён к исходному металлическому шестиугольнику с объёмным знаком ?. Без новой центральной вставки; прежние размеры/кадрирование. Остальные 15 D–S++ SVG побайтно неизменны. Только HTML-макет.
+
+
+UI-RANK-FIRE-07: static painted fire variants for every +/++ rank; original base ranks and unranked unchanged. Letter/division geometry retained.
