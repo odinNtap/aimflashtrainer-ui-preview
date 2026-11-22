@@ -38,3 +38,5 @@ New mode-first Home: Aim, flashes, ranked and friend duel; playlists/resume/dail
 22.11 · UI-HOME-POLISH-12: welcome line restored, taller recommendation/resume fills lower Home; training illustrations for Aim/VAL/CS2; capsule navigation. 1920×1080 and compact spacing verified.
 
 22.11 · UI-HOME-MINIMAL-13: minimal mode symbols, clean game choice and capsule switcher; actual current exercise preview behind recommendation/resume. Daily step 1→2, VAL/CS2, 1920×1080 and 1366×768 checked.
+
+22.11 · UI-NAVIGATION-PLAYLIST-14: fixed game colors, compact rail rank/back/grid; redesigned playlist composition; calibration card button; inline cancellable search with infinity warmup and navigation persistence. Synthetic preview only; 1920/1366 checked.
