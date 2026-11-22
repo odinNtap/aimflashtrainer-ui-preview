@@ -27,3 +27,8 @@ UI-RANK-SCALE-08: align base/+/++ emblem scale; external flame gutter preserves 
 
 
 UI-RANK-PLUS-09: moderately stronger painted flames for single-plus ranks only; geometry, base ranks and double-plus ranks unchanged.
+
+
+## UI-HOME-COMPLETE-10 · 22 Nov 2026
+
+New mode-first Home: Aim, flashes, ranked and friend duel; playlists/resume/daily and all three weekly tasks. Open “Проверить весь макет” or footer “Карта макета” for80primary screens/states. Covers VAL/CS2, queues/warmup/countdowns/outcomes/rematch, calibration, S1/S2/rewards, settings, Cloud/error states, news and sample diagnostics. Review controls and fixtures are prototype-only. No Steam or actual game saves.1920×1080/DPR1 validated;1366×768 overflow/CTA check passed. Native game, GPU/audio/input, physical two-PC and release gates remain separate.
