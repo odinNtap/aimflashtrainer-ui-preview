@@ -24,3 +24,6 @@ UI-RANK-FIRE-07: static painted fire variants for every +/++ rank; original base
 
 
 UI-RANK-SCALE-08: align base/+/++ emblem scale; external flame gutter preserves full artwork and unchanged glyph size. Checked at1920×1080.
+
+
+UI-RANK-PLUS-09: moderately stronger painted flames for single-plus ranks only; geometry, base ranks and double-plus ranks unchanged.
