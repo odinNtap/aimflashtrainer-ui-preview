@@ -1339,7 +1339,8 @@ SOFTWARE.
 #af-studio #af-player-summary .af-ds-badge[data-rank*="+"]>.af-rank-image{position:absolute;left:-18%;top:-18%;width:136%;height:136%}
 
 /* Home and review surfaces. Physical text sizes target 1920×1080/DPR1. */
-#af-studio[data-screen=home] .af-top{visibility:hidden}
+#af-studio[data-screen=home] .af-top{display:none}
+#af-studio[data-screen=home] .af-workspace{grid-template-rows:minmax(0,1fr) 24px}
 /* One capsule navigation for all player screens. */
 #af-studio #af-main-nav{height:48px;padding:4px;gap:4px;border:1px solid var(--af-border);border-radius:999px;background:color-mix(in srgb,var(--af-surface) 70%,transparent)}
 #af-studio #af-main-nav .af-nav{position:relative;margin:0;border:1px solid transparent;border-radius:999px;padding:0 18px;height:38px;background:transparent;color:var(--af-muted);box-shadow:none;transition:background .15s,border-color .15s,color .15s}
